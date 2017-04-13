@@ -2,7 +2,7 @@
 /*** Purpose:           Takes AEM URL’s and converts them to the actual preview paths        ***/
 /*** ASP Author:        Shao Xia                                                             ***/
 /*** JS Author:         Adam Monsour && Marc-Andre Methot                                    ***/
-/*** Date:   			2017-04-13                                                           ***/
+/*** Date:   			2017-04-13                                                   ***/
 /*** Team:              WebOps                                                               ***/
 /*** Version:           1.02 (JS Release)                                                    ***/
 /***********************************************************************************************/

@@ -2,7 +2,7 @@
 /*** Purpose:           Takes AEM URL’s and converts them to the actual preview paths        ***/
 /*** ASP Author:        Shao Xia                                                             ***/
 /*** JS Author:         Adam Monsour && Marc-Andre Methot                                    ***/
-/*** Date:   			2017-04-13                                                   ***/
+/*** Date:   			2017-04-13                                                           ***/
 /*** Team:              WebOps                                                               ***/
 /*** Version:           1.02 (JS Release)                                                    ***/
 /***********************************************************************************************/
@@ -13,7 +13,7 @@ $(document).ready(function() {
 		//Cancels default submission
 		e.preventDefault();
 		//Initialize variables
-		var filename, path, fs, tmpFile, fragURL, propURL, baseTempHeader, baseTempFooter, countLinks;
+		var filename, path, fs, tmpFile, fragURL, propURL, baseTempHeader, baseTempFooter, countLinks, validUrl;
 		//Get the textarea's value
         $fragURL = $('.fragURL').val();
 		countLinks = 1;
@@ -41,14 +41,24 @@ $(document).ready(function() {
 		arrFragURL=$fragURL.replace(regex,"\n").split("\n");
 		
 		var links = '<p>';
-		for ( i=0; i<arrFragURL.length;i++) {
+		
+		for (i=0; i<arrFragURL.length;i++) {
+			$validUrl = true
 			$arr = arrFragURL[i];
-			var n = $arr.search("http://");
-			if (n==-1) $arr = "";
-			else $arr = $arr.substring(n, $arr.length);	
-			if ($arr != "" && $arr.indexOf('.html') !== -1) {
-				countLinks = countLinks + 1;
-				links += '<a href="' + $arr + '">' + $arr + '</a><br />';
+			UrlExists($arr, function(status){
+		  	 if(status === 404){
+		  	 	$validUrl = false	
+			    } 
+			});
+
+			if ($validUrl === true) {
+					var n = $arr.search("https://");
+					if (n==-1) $arr = "";
+					else $arr = $arr.substring(n, $arr.length);	
+					if ($arr != "" && $arr.indexOf('.html') !== -1) {
+						countLinks = countLinks + 1;
+						links += '<a href="' + $arr + '">' + $arr + '</a><br />';
+						}
 			}
 		}
 
@@ -134,16 +144,16 @@ $(document).ready(function() {
 
 	}
 
-	function UrlExists(url, cb){
-    jQuery.ajax({
-        url:      url,
-        dataType: 'text',
-        type:     'GET',
-        complete:  function(xhr){
-            if(typeof cb === 'function')
-               cb.apply(this, [xhr.status]);
-        }
-    });
-}
+	success: function UrlExists(url, cb){
+	    jQuery.ajax({
+	        url:      url,
+	        dataType: 'text',
+	        type:     'GET',
+	        complete:  function(xhr){
+	            if(typeof cb === 'function')
+	               cb.apply(this, [xhr.status]);
+	        }
+	    });
+	}
 
 });

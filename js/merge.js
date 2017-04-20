@@ -53,6 +53,19 @@ $(document).ready(function() {
 			});
 			type = getUrlType($arr);
 			
+			switch (type){
+				case "live":
+					var eqq = setUrl($arr,type);
+					alert(eqq);
+					break;
+				case "preview":
+					alert("11");
+					break;
+				case "editor":
+					break;
+				case "aemUrl":
+					break;
+			}
 			var n = $arr.search("https://");
 			if (n==-1) $arr = "";
 			else $arr = $arr.substring(n, $arr.length);	
@@ -156,8 +169,25 @@ $(document).ready(function() {
 
 	}
 
-	function setURL(fragURL) {
+	function getAemUrl(fragURL) {
 
+	}
+
+	function setUrl(fragURL, type) {
+		var n;
+		var wn;
+		switch (type){
+			case "live":
+				n = fragURL.replace("https://www.canada.ca", "https://author-canada-prod.adobecqms.net/sites.html/content/canadasite");
+			    n = n.replace(".html","");
+				break;
+			case "preview":
+				alert("11");
+				break;
+			case "editor":
+				break;
+		}	
+		return wn;
 	}
 
 	success: function UrlExists(url, cb){

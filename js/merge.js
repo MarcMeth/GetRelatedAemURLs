@@ -15,6 +15,7 @@ $(document).ready(function() {
 		//Initialize variables
 		var filename, path, fs, tmpFile, fragURL, propURL, baseTempHeader, baseTempFooter, countLinks, validUrl;
 		//Get the textarea's value
+        //var url = {originalPath:, regex:, preview:, editor:, live:};
         $fragURL = $('.fragURL').val();
 		countLinks = 1;
 		
@@ -50,15 +51,18 @@ $(document).ready(function() {
 		  	 	$validUrl = false	
 			    } 
 			});
-
-			if ($validUrl === true) {
-					var n = $arr.search("https://");
-					if (n==-1) $arr = "";
-					else $arr = $arr.substring(n, $arr.length);	
-					if ($arr != "" && $arr.indexOf('.html') !== -1) {
-						countLinks = countLinks + 1;
-						links += '<a href="' + $arr + '">' + $arr + '</a><br />';
-						}
+			type = getUrlType($arr);
+			
+			var n = $arr.search("https://");
+			if (n==-1) $arr = "";
+			else $arr = $arr.substring(n, $arr.length);	
+			if ($arr != "" && $arr.indexOf('.html') !== -1) {
+				countLinks = countLinks + 1;
+				if ($validUrl === true) {
+				links += '<a href="' + $arr + '">' + $arr + '</a><br />';
+				}else if ($validUrl === false) {
+				links += '<a href="' + $arr + '">' + $arr + '</a><br />';	
+				}
 			}
 		}
 
@@ -128,6 +132,18 @@ $(document).ready(function() {
 		}
 	}
 	
+	function getUrlType(fragURL){
+		var types ={"live":"https:\/\/www.canada.ca\/(.*?).html", "preview":"https:\/\/canada-preview.adobecqms.net\/(.*?).html", "editor":"https:\/\/author-canada-prod.adobecqms.net\/editor.html(.*?).html", "aemUrl":"https:\/\/author-canada-prod.adobecqms.net\/sites.html(.*?)\s"};
+		$.each(types, function(key, value){
+			var testingForType = fragURL.match(value);
+			if (testingForType != null){
+				type = key;
+			}
+		});
+
+		return type;
+	}
+
 	function getPreview(fragURL) {
 
 	}

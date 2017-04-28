@@ -55,15 +55,20 @@ $(document).ready(function() {
 			
 			switch (type){
 				case "live":
-					var eqq = setUrl($arr,type);
-					alert(eqq);
+					var eqq = setUrlToAem($arr,type);
+					
 					break;
 				case "preview":
-					alert("11");
+					var eqq = setUrlToAem($arr,type);
+					
 					break;
 				case "editor":
+					var eqq = setUrlToAem($arr,type);
+					
 					break;
 				case "aemUrl":
+					
+					
 					break;
 			}
 			var n = $arr.search("https://");
@@ -80,7 +85,7 @@ $(document).ready(function() {
 		}
 
 		if (countLinks == 1) {
-			$("div#error").replaceWith( "<p><strong>Please enter a value in the text area below</strong></p>");
+			$("div#error").replaceWith("<p><strong>Please enter a value in the text area below</strong></p>");
 		}
 		else {
 			final += '<p>Number of pages (including current page): <strong>' + countLinks + '</strong></p>';
@@ -144,7 +149,7 @@ $(document).ready(function() {
 			}, 100);  
 		}
 	}
-	
+	//Get type from the url.
 	function getUrlType(fragURL){
 		var types ={"live":"https:\/\/www.canada.ca\/(.*?).html", "preview":"https:\/\/canada-preview.adobecqms.net\/(.*?).html", "editor":"https:\/\/author-canada-prod.adobecqms.net\/editor.html(.*?).html", "aemUrl":"https:\/\/author-canada-prod.adobecqms.net\/sites.html(.*?)\s"};
 		$.each(types, function(key, value){
@@ -170,24 +175,31 @@ $(document).ready(function() {
 	}
 
 	function getAemUrl(fragURL) {
-
+			
 	}
+	//If url is not AEM url set the url to it. 
+	function setUrlToAem(fragURL, type) {
+		var n,language;
 
-	function setUrl(fragURL, type) {
-		var n;
-		var wn;
 		switch (type){
 			case "live":
-				n = fragURL.replace("https://www.canada.ca", "https://author-canada-prod.adobecqms.net/sites.html/content/canadasite");
-			    n = n.replace(".html","");
+				n = fragURL.replace(".html","");
+				n = n.replace("https://www.canada.ca", "https://author-canada-prod.adobecqms.net/sites.html/content/canadasite");
 				break;
 			case "preview":
-				alert("11");
+				n = fragURL.replace(".html","");
+				n = n.replace("https://canada-preview.adobecqms.net","https://author-canada-prod.adobecqms.net/sites.html/content/canadasite");
 				break;
-			case "editor":
+			case "editor":	
+				var nth = 0;
+				n = fragURL.replace(/.html/g, function (match, i, original) {
+				    nth++;
+				    return (nth === 2) ? "" : match;
+				});
+				n = n.replace("https://author-canada-prod.adobecqms.net/editor.html/content/canadasite","https://author-canada-prod.adobecqms.net/sites.html/content/canadasite");			
 				break;
 		}	
-		return wn;
+		return n;
 	}
 
 	success: function UrlExists(url, cb){

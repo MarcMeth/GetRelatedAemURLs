@@ -8,27 +8,74 @@
 <header>
 <title>AEM URL's to Preview URL's</title>
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<style>
+
+  .urlContainers { width: 1000px; height: 150px; padding: 0.5em; }
+
+</style>
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 </header>
 
 <body class="mrgn-lft-md mrgn-tp-md">
 
-<div id="replace">
-
+<div id="form">
+<div class="container">
 <form id="merge" role="form">
 
 <p>Enter URL list:<br>
-<span class="small">Make sure the entire URL including <em>http://</em> is inserted</span></p>
-<div id="error"></div>
-<p><textarea class="fragURL" cols="130" rows="20" autofocus></textarea></p>
-<p><button type="submit" class="btn btn-default mrgn-tp-md">Submit</button></p>
+<span class="small">Make sure the entire URL including <em>https://</em> is inserted</span></p>
+<div id="error" class="alert alert-info" style="display:none;"></div>
+<p><textarea class="fragURL form-control" cols="130" rows="20" autofocus></textarea></p>
+<p><button type="submit" id="submit" class="btn btn-default mrgn-tp-md">Submit</button></p>
 
 </form>
-
+</div>
 </div>
 
-<script type="text/javascript" src="./js/merge.js"></script> 
+<div class="container">
+	<div class="content" id="content" style="display:none;">
+		
+			<div class="btn-group btn-group-justified" role="group" aria-label="...">
+			  <div class="btn-group" role="group">
+			    <button type="button" id="openLive" class="btn btn-default">Open Live Url(s)</button>
+			  </div>
+			  <div class="btn-group" role="group">
+			    <button type="button" id="openPreview" class="btn btn-default">Open Preview Url(s)</button>
+			  </div>
+			  <div class="btn-group" role="group">
+			    <button type="button" id="openEditor" class="btn btn-default">Open Editor Url(s)</button>
+			  </div>
+			  <div class="btn-group" role="group">
+			    <button type="button" id="openAem" class="btn btn-default">Open Aem Path Url(s)</button>
+			  </div>
+			</div>
+		
+
+		<h2>Live</h2>
+		<textarea readonly class="urlContainers " style="overflow:hidden;" id="Live"></textarea>
+		
+		<h2>Preview</h2>
+		<textarea readonly class="urlContainers " style="overflow:hidden;" id="Preview"></textarea>
+		
+		<h2>Editor</h2>
+		<textarea readonly class="urlContainers " style="overflow:hidden;" id="Editor"></textarea>
+		
+		<h2>Aem Path</h2>
+		<textarea readonly class="urlContainers " style="overflow:hidden;" id="Aem"></textarea>
+	
+	<button type="button" style="display:none;" id="back" class="btn btn-default mrgn-tp-md">Back To Main Page</button>
+
+	</div>
+</div>
+<script type="text/javascript" src="./js/aemUrls.js"></script> 
+
 
 </body>
 

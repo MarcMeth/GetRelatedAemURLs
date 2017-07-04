@@ -1,11 +1,3 @@
-/***********************************************************************************************/
-/*** Purpose:           Takes AEM URL’s and converts them to the actual preview paths        ***/
-/*** JS Author:         Adam Monsour && Marc-Andre Methot                                    ***/
-/*** Date:   			2017-04-13                                                           ***/
-/*** Team:              WebOps                                                               ***/
-/*** Version:           1.00 (JS Release)                                                    ***/
-/***********************************************************************************************/
-
 $(document).ready(function() {
 
 //Code for when the back button is hit. 

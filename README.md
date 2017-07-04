@@ -13,4 +13,5 @@ then check
 
 https://www.canada.ca/en/taxpayers-ombudsman.html - Ok or 404)
 
-
+To-Fix
+http://author-canada-prod.adobecqms.net/editor.html/content/canadasite/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/gst-account/input-tax-credits/calculate-input-tax-credits-percentage-use-commercial-activities.html

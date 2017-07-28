@@ -60,7 +60,7 @@ $(document).ready(function() {
 								var liveUrl = $arr;
 								var editorUrl = getEditor(aemUrl);
 								
-								var status = checkIfLinkIs404(liveUrl);
+								
 
 								break;
 
@@ -70,7 +70,7 @@ $(document).ready(function() {
 								var liveUrl = getLive(aemUrl);
 								var editorUrl = getEditor(aemUrl);
 
-								var status = checkIfLinkIs404(liveUrl);
+								
 									
 								break;
 
@@ -80,7 +80,7 @@ $(document).ready(function() {
 								var liveUrl = getLive(aemUrl);
 								var editorUrl = $arr;
 
-								var status = checkIfLinkIs404(liveUrl);
+								
 							
 								break;
 
@@ -90,7 +90,7 @@ $(document).ready(function() {
 								var liveUrl = getLive(aemUrl);
 								var editorUrl = getEditor(aemUrl);
 
-								var status = checkIfLinkIs404(liveUrl);
+								
 
 								break;
 							
@@ -117,22 +117,7 @@ $(document).ready(function() {
 		});
 	});
 	
-	function checkIfLinkIs404($url){
-		var returnStatus;
-		
-		UrlExists($url, function(status){
-
-		if(status === 200){
-       		returnStatus = "200"
-	    }
-	    else if(status === 404){
-	       returnStatus = "404"
-	    }	    
-		});
-
-		return returnStatus;
-
-	}
+	
 
 function openUrls(fragURL){
 	var regex=/\r\n|\n\r|\n|\r/g;
@@ -209,18 +194,6 @@ function openUrls(fragURL){
 		return n;
 	}
 
-	function UrlExists(url, cb){
-    jQuery.ajax({
-        url:      url,
-        dataType: 'text',
-        type:     'GET',
-        async:     false,
-        complete:  function(xhr){
-            if(typeof cb === 'function')
-               cb.apply(this, [xhr.status]);
-        }
-    });
-}
 });
 
 

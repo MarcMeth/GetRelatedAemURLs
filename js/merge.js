@@ -148,21 +148,20 @@ arrFragURL = arrFragURL.filter(function (v) {
 if(arrFragURL.length > 15){
 
 var r = confirm("You are about to open " + arrFragURL.length + " URL's. This will cause your browser to slowdown until they are all loaded. It may even crash your browser. Use at your own risk.");
-if (r == true) {
-    'use strict';
-	//returns every element in the array except for the empty ones('')
-	
-	//opens all the elements(url's) in the array
+	if (r == true) {
+	    'use strict';
+		//returns every element in the array except for the empty ones('')
+		
+		//opens all the elements(url's) in the array
+		for (i=0; i<arrFragURL.length;i++) {
+			window.open(arrFragURL[i]);
+		}
+	} else {} 
+} else {
 	for (i=0; i<arrFragURL.length;i++) {
 		window.open(arrFragURL[i]);
 	}
-} else {
-   
- } 
 }
-
-	
-
 }
 	//Get type from the url.
 	function getUrlType(fragURL){

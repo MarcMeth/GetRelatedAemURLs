@@ -29,8 +29,15 @@
 <div class="container">
 <form id="merge" role="form">
 
+
+
 <p>Enter URL list:<br>
-<span class="small">Make sure the entire URL including <em>https://</em> is inserted</span></p>
+<span class="small">Make sure you are using any of the supported URL formats 
+    (<a href="#" data-toggle="tooltip" data-placement="bottom" title="https://www.canada.ca/">Live</a>, 
+    <a href="#" data-toggle="tooltip" data-placement="bottom" title="https://author-canada-prod.adobecqms.net/sites.html/">AEM path</a>, 
+	<a href="#" data-toggle="tooltip" data-placement="bottom" title="https://author-canada-prod.adobecqms.net/editor.html/">Editor</a>, 
+	<a href="#" data-toggle="tooltip" data-placement="bottom" title="https://canada-preview.adobecqms.net/">Preview</a>)
+	</span></p>
 <div id="error" class="alert alert-info" style="display:none;"></div>
 <p><textarea class="fragURL form-control" cols="130" rows="20" autofocus></textarea></p>
 <p><button type="submit" id="submit" class="btn btn-default mrgn-tp-md">Submit</button></p>
@@ -53,7 +60,7 @@
 			    <button type="button" id="openEditor" class="btn btn-default">Open Editor Url(s)</button>
 			  </div>
 			  <div class="btn-group" role="group">
-			    <button type="button" id="openAem" class="btn btn-default">Open Aem Path Url(s)</button>
+			    <button type="button" id="openAem" class="btn btn-default">Open AEM Path Url(s)</button>
 			  </div>
 			</div>
 		
@@ -67,14 +74,14 @@
 		<h2>Editor</h2>
 		<textarea readonly class="urlContainers " style="overflow:hidden;" id="Editor"></textarea>
 		
-		<h2>Aem Path</h2>
+		<h2>AEM Path</h2>
 		<textarea readonly class="urlContainers " style="overflow:hidden;" id="Aem"></textarea>
 	
 	<button type="button" style="display:none;" id="back" class="btn btn-default mrgn-tp-md">Back To Main Page</button>
 
 	</div>
 </div>
-<script type="text/javascript" src="./merge.js"></script> 
+<script type="text/javascript" src="./merge.js"></script>  
 
 
 </body>

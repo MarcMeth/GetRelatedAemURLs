@@ -1,6 +1,13 @@
+/***********************************************************************************************/
+/*** Purpose:           Takes AEM URL’s and converts them to the actual preview paths        ***/
+/*** JS Author:         Marc-Andre Methot                                    ***/
+/*** Date:   			2017-04-13                                                           ***/
+/*** Team:              WebOps                                                               ***/
+/*** Version:           1.00 (JS Release)                                                    ***/
+/***********************************************************************************************/
+
 $(document).ready(function() {
 
-//Code for when the back button is hit. 
 	$("#back").click(function() {
 			$("#content").hide();
 			$("#form").show();
@@ -8,7 +15,6 @@ $(document).ready(function() {
 			$(".urlContainers").html("");
 		});
 
-//Next 4 function are simply getting the value of the textarea's(URLS) then passing them off to the openUrls function. 
 	$("#openLive").click(function() {
 			$fragURL = $('#Live').val();
 			openUrls($fragURL);
@@ -32,9 +38,12 @@ $(document).ready(function() {
 		//Initialize variables
 		var valid, $arr, arrFragURL;;
 		//Get the textarea's value
+        //var url = {originalPath:, regex:, preview:, editor:, live:};
         $fragURL = $('.fragURL').val();
+		countLinks = 1;
 		
 		$fragURL = $fragURL.replace(/\t/g, "");	
+		
 		var regex=/\r\n|\n\r|\n|\r/g;
 		arrFragURL=$fragURL.replace(regex,"\n").split("\n");
 		
@@ -44,7 +53,19 @@ $(document).ready(function() {
 			$arr = arrFragURL[i];
 			
 			$arr = $arr.trim();
-			var n = $arr.search("https://");
+			var patt = /http:|\#/;
+ 			testResult = patt.test($arr);
+ 			
+ 			if (testResult == true) {
+ 				//Checks if it has a # if it does it splits the string in two 
+				var $arr = $arr.split("#");
+				//Sets the string $arr to the 1st part of the split
+				var $arr = $arr[0];
+				var $arr = $arr.replace(patt, "https:");
+
+ 			}
+			
+			var n = $arr.search("https:");
 			if (n==-1) $arr = "";
 			else $arr = $arr.substring(n, $arr.length);	                   //wow
 			if ($arr != "" && $arr.indexOf('.html') !== -1) {
@@ -60,7 +81,6 @@ $(document).ready(function() {
 								var liveUrl = $arr;
 								var editorUrl = getEditor(aemUrl);
 								
-								
 
 								break;
 
@@ -70,7 +90,6 @@ $(document).ready(function() {
 								var liveUrl = getLive(aemUrl);
 								var editorUrl = getEditor(aemUrl);
 
-								
 									
 								break;
 
@@ -80,7 +99,6 @@ $(document).ready(function() {
 								var liveUrl = getLive(aemUrl);
 								var editorUrl = $arr;
 
-								
 							
 								break;
 
@@ -90,7 +108,6 @@ $(document).ready(function() {
 								var liveUrl = getLive(aemUrl);
 								var editorUrl = getEditor(aemUrl);
 
-								
 
 								break;
 							
@@ -122,16 +139,29 @@ $(document).ready(function() {
 function openUrls(fragURL){
 	var regex=/\r\n|\n\r|\n|\r/g;
 	arrFragURL=$fragURL.replace(regex,"\n").split("\n");
-	
-	'use strict';
 
-	arrFragURL = arrFragURL.filter(function (v) {
+arrFragURL = arrFragURL.filter(function (v) {
 	  return v != '';
 	});
+		
 	
+if(arrFragURL.length > 15){
+
+var r = confirm("You are about to open " + arrFragURL.length + " URL's. This will cause your browser to slowdown until they are all loaded. It may even crash your browser. Use at your own risk.");
+if (r == true) {
+    'use strict';
+	//returns every element in the array except for the empty ones('')
+	
+	//opens all the elements(url's) in the array
 	for (i=0; i<arrFragURL.length;i++) {
 		window.open(arrFragURL[i]);
 	}
+} else {
+   
+ } 
+}
+
+	
 
 }
 	//Get type from the url.
@@ -193,7 +223,6 @@ function openUrls(fragURL){
 		}	
 		return n;
 	}
-
 });
 
 

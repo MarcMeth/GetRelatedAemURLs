@@ -1,17 +1,14 @@
-TODO
---------
+What is the Related URLs Tool?
 
-1 form to convert AEM paths to live site paths then check they exist (404 or not).
+The tool allows you to see a list of all URLs related to the URLs you enter into the tool.  You can also open up all of one type of URL at once.
 
-https://**author-canada-prod.adobecqms.net/sites.html/content/canadasite**/en/taxpayers-ombudsman
+Why is this useful?
+The related URLs tool is excellent tool for doing any sort of page editing, analysis work or comparison work in Canada.ca pages.  Since you can open up multiple pages at once, it will make doing a series of tasks go a lot faster. Specifically, the tool is helpful for bulk publishing since there are no workflows in AEM. It allows us to convert lists of URLs that authors send us (live or preview or author) all at once so that we can publish the pages from author mode. The ability to open multiple links in several tabs makes this process go a lot quicker.
 
-to
+---------------------------------- Update v2----------------------------------
 
-https://www.canada.ca/en/taxpayers-ombudsman.html
-
-then check
-
-https://www.canada.ca/en/taxpayers-ombudsman.html - Ok or 404)
-
-To-Fix
-http://author-canada-prod.adobecqms.net/editor.html/content/canadasite/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/gst-account/input-tax-credits/calculate-input-tax-credits-percentage-use-commercial-activities.html
+• Significantly faster when doing large amount of URL’s
+• Inputing url’s that start with http:// will now work in the tool.  
+• Checks and removes any anchors from URL
+• Prompts you for confirmation when opening more then 15 url’s
+• Finally for the most requested fix; Aem has been changed to AEM

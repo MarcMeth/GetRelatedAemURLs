@@ -5,6 +5,10 @@ The tool allows you to see a list of all URLs related to the URLs you enter into
 Why is this useful?
 The related URLs tool is excellent tool for doing any sort of page editing, analysis work or comparison work in Canada.ca pages.  Since you can open up multiple pages at once, it will make doing a series of tasks go a lot faster. Specifically, the tool is helpful for bulk publishing since there are no workflows in AEM. It allows us to convert lists of URLs that authors send us (live or preview or author) all at once so that we can publish the pages from author mode. The ability to open multiple links in several tabs makes this process go a lot quicker.
 
+Try it here:
+
+https://marcmeth.github.io/GetRelatedAemURLs/
+
 ---------------------------------- Update v2----------------------------------
 
 • Significantly faster when doing large amount of URL’s

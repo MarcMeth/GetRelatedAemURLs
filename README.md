@@ -16,6 +16,14 @@ https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-b
 
 https://canada-preview.adobecqms.net/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses.html
 
+## Troubleshooting
+
+### I inputed more then two URL's and only 1 url opens in a new tab when I click the open buttons? 
+You might havve to fiddle arround with your browser to allow multiple tabs to open from trusted domain. 
+
+### Batch validation doesn't seem to do anything? 
+Correct, it has not been implemented yet. 
+
 ---------------------------------- Update v2----------------------------------
 
 - Significantly faster when doing large amount of URL’s

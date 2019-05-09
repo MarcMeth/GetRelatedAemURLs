@@ -24,6 +24,8 @@ You might have to fiddle arround with your browser's settings to allow multiple 
 ### Batch validation doesn't seem to do anything? 
 Correct, it has not been implemented yet. 
 
+## Updates
+
 ---------------------------------- Update v2----------------------------------
 
 - Significantly faster when doing large amount of URL’s

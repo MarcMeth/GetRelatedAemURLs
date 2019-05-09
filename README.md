@@ -19,7 +19,7 @@ https://canada-preview.adobecqms.net/en/revenue-agency/services/tax/businesses/t
 ## Troubleshooting
 
 ### I inputed more then two URL's and only 1 url opens in a new tab when I click the open buttons? 
-You might have to fiddle arround with your browser to allow multiple tabs to open from a trusted domain. 
+You might have to fiddle arround with your browser's settings to allow multiple tabs to open from a trusted domain. 
 
 ### Batch validation doesn't seem to do anything? 
 Correct, it has not been implemented yet. 

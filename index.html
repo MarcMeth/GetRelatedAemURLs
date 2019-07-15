@@ -1,272 +1,136 @@
-
 <!DOCTYPE html>
-
 <html lang="en">
-
  
-
 <head>
+	 <meta charset="utf-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	 <link rel="stylesheet" href="./dist/bootstrap-4.3.1-dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-                <meta charset="utf-8">
+	<title>AEM Related URL's</title>
 
-                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<style>
+	/*    .urlContainers { width: 1000px; height: 150px; padding: 0.5em; }*/
+	  .text-decoration-none {text-decoration: none;}
+	</style>
 
-                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	</head>
 
- 
-
-                <title>AEM Related URL's</title>
-
- 
-
-                <style>
-
-                  .urlContainers { width: 1000px; height: 150px; padding: 0.5em; }
-
-                  .text-decoration-none {text-decoration: none;}
-
-                </style>
-
- 
-
-                <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-                <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-                </head>
-
- 
-
- 
 
 <body class="mrgn-lft-md mrgn-tp-md">
 
- 
-
- 
 
 <!--<p class="bg-info">Please update your bookmarks this tool is in a new location!</p>-->
 
- 
-
 <div id="form">
-
 <div class="container">
-
 <form id="merge" role="form">
 
- 
 
- 
-
- 
 
 <p>Enter URL list :<br>
 
- 
+<span class="small">Make sure you are using any of the supported URL formats 
+    (<a href="#" data-toggle="tooltip" data-placement="bottom" title="https://www.canada.ca/">Live</a>, 
+    <a href="#" data-toggle="tooltip" data-placement="bottom" title="https://author-canada-prod.adobecqms.net/sites.html/">AEM path</a>, 
+	<a href="#" data-toggle="tooltip" data-placement="bottom" title="https://author-canada-prod.adobecqms.net/editor.html/">Editor</a>, 
+	<a href="#" data-toggle="tooltip" data-placement="bottom" title="https://canada-preview.adobecqms.net/">Preview</a>)
+	</span></p>
 
-<span class="small">Make sure you are using any of the supported URL formats
 
-    (<a href="#" data-toggle="tooltip" data-placement="bottom" title="https://www.canada.ca/">Live</a>,
-
-    <a href="#" data-toggle="tooltip" data-placement="bottom" title="https://author-canada-prod.adobecqms.net/sites.html/">AEM path</a>,
-
-                <a href="#" data-toggle="tooltip" data-placement="bottom" title="https://author-canada-prod.adobecqms.net/editor.html/">Editor</a>,
-
-                <a href="#" data-toggle="tooltip" data-placement="bottom" title="https://canada-preview.adobecqms.net/">Preview</a>)
-
-                </span></p>
-
- 
-
- 
 
 <p><textarea class="fragURL form-control" cols="130" rows="20" autofocus></textarea></p>
-
 <div class="container">
-
-                <div class="row">
-
-                                <div class="col-sm-8">
-
-                                                <a class="text-decoration-none" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Use with caution" data-content="These shortcuts have not been approved by Principal Publisher or Adobe, please use with caution and QA after you've used them.">
-
-                                                                <input type="radio" value="publishLater" name="options"> Include publish later url's
-
-                                                </a>
-
-                                                <br>
-
-                                                <a class="text-decoration-none" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Use with caution" data-content="These shortcuts have not been approved by Principal Publisher or Adobe, please use with caution and QA after you've used them.">
-
-                                                                <input type="radio" value="csvReport" name="options"> Include csv report url's
-
-                                                </a>
-
-                                                <br>
-
-                                                <a class="text-decoration-none" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Use with caution" data-content="These shortcuts have not been approved by Principal Publisher or Adobe, please use with caution and QA after you've used them.">
-
-                                                                <input type="radio" value="move" name="options"> Include move url's
-
-                                                </a>
-
-                                                <br>
-
-                                                <a class="text-decoration-none" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Use with caution" data-content="These shortcuts have not been approved by Principal Publisher or Adobe, please use with caution and QA after you've used them.">
-
-                                                                <input type="radio" value="properties" name="options"> Include properties url's
-
-                                                </a>
-
-                                                <br>
-
-                                                <a class="text-decoration-none" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Use with caution" data-content="These shortcuts have not been approved by Principal Publisher or Adobe, please use with caution and QA after you've used them.">
-
-                                                                <input type="radio" value="publishToPreview" name="options"> Include publish to preview url's
-
-                                                </a>
-
-                                                <br>
-
-                                                <a class="text-decoration-none" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Use with caution" data-content="These shortcuts have not been approved by Principal Publisher or Adobe, please use with caution and QA after you've used them.">
-
-                                                                <input type="radio" value="publishToProduction" name="options"> Include publish to production url's
-
-                                                </a><br><br>
-
-                                </div>
-
-                                <div class="col-sm-4">
-
-                                                <input type="checkbox" value="publishToProduction" name="options">Generate batch validation file
-
-                                </div>
-
-                </div>
-
+	<div class="row">
+		<div class="col-sm-8">
+			<a class="text-decoration-none" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Use with caution" data-content="These shortcuts have not been approved by Principal Publisher or Adobe, please use with caution and QA after you've used them.">
+				<input type="radio" value="publishLater" name="options"> Include publish later url's
+			</a>
+			<br>
+			<a class="text-decoration-none" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Use with caution" data-content="These shortcuts have not been approved by Principal Publisher or Adobe, please use with caution and QA after you've used them.">
+				<input type="radio" value="csvReport" name="options"> Include csv report url's
+			</a>
+			<br>
+			<a class="text-decoration-none" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Use with caution" data-content="These shortcuts have not been approved by Principal Publisher or Adobe, please use with caution and QA after you've used them.">
+				<input type="radio" value="move" name="options"> Include move url's
+			</a>
+			<br>
+			<a class="text-decoration-none" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Use with caution" data-content="These shortcuts have not been approved by Principal Publisher or Adobe, please use with caution and QA after you've used them.">
+				<input type="radio" value="properties" name="options"> Include properties url's
+			</a>
+			<br>
+			<a class="text-decoration-none" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Use with caution" data-content="These shortcuts have not been approved by Principal Publisher or Adobe, please use with caution and QA after you've used them.">
+				<input type="radio" value="publishToPreview" name="options"> Include publish to preview url's
+			</a>
+			<br>
+			<a class="text-decoration-none" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Use with caution" data-content="These shortcuts have not been approved by Principal Publisher or Adobe, please use with caution and QA after you've used them.">
+				<input type="radio" value="publishToProduction" name="options"> Include publish to production url's
+			</a><br><br>
+		</div>
+		<div class="col-sm-4">
+			<input id="chkBxValidate" type="checkbox" value="publishToProduction" name="options"> Generate batch validation file
+		</div>
+	</div>
 </div>
-
- 
-
- 
-
- 
-
- 
 
 <p><button type="submit" id="submit" class="btn btn-primary mrgn-tp-md">Submit</button>
-
 <button type="reset" class="btn btn-secondary">Clear</button>
-
 </p>
-
 </form>
-
 </div>
-
 </div>
-
- 
-
- 
-
- 
 
 <div class="container">
+	<div class="content" id="content" style="display:none;">
+	<div class="row mt-2" style="padding-left: 15px;">	
+		
+			<div class="btn-group" role="group" aria-label="Basic example">
+				<button type="button" id="openLive" class="btn btn-secondary">Open Live Url(s)</button> 
+			    <button type="button" id="openPreview" class="btn btn-secondary">Open Preview Url(s)</button>
+			  	<button type="button" id="openEditor" class="btn btn-secondary">Open Editor Url(s)</button>
+			    <button type="button" id="openAem" class="btn btn-secondary">Open AEM Path Url(s)</button>
+			    <button type="button" id="openOptional" class="btn btn-secondary optional">Open Optional Url(s)</button>
+			</div>
+	</div>
 
-                <div class="content" id="content" style="display:none;">
+	<div id="error" class="alert alert-info m-2" style="display:none;"></div>
+	<div id="success" class="alert alert-success m-2" style="display:none;"></div>
 
-                <div class="row" style="padding-left: 15px;">    
+		<h2 class="h4 mt-1">Live</h2>
+		<textarea class="urlContainers form-control" cols="130" rows="5" autofocus style="overflow:hidden;" id="Live"></textarea>
+		
+		<h2 class="h4 mt-1">Preview</h2>
+		<textarea class="urlContainers form-control" cols="130" rows="5" autofocus style="overflow:hidden;" id="Preview"></textarea>
+		
+		<h2 class="h4 mt-1">Editor</h2>
+		<textarea class="urlContainers form-control" cols="130" rows="5" autofocus style="overflow:hidden;" id="Editor"></textarea>
+		
+		<h2 class="h4 mt-1">AEM Path</h2>
+		<textarea class="urlContainers form-control" cols="130" rows="5" autofocus style="overflow:hidden;" id="Aem"></textarea>
+		<div class="optional" style="overflow:hidden;">
+			<h2 class="h4 mt-1" id="h2OptionHeading">Optional Url(s)</h2>
+			<textarea class="urlContainers form-control" cols="130" rows="5" autofocus style="overflow:hidden;" id="Optional"></textarea>
+		</div>
+	<button type="button" style="display:none;" id="back" class="btn btn-primary mt-2">Back To Main Page</button>
 
-                               
-
-                                                <div class="btn-group" role="group" aria-label="Basic example">
-
-                                                                <button type="button" id="openLive" class="btn btn-secondary">Open Live Url(s)</button>
-
-                                                    <button type="button" id="openPreview" class="btn btn-secondary">Open Preview Url(s)</button>
-
-                                                                <button type="button" id="openEditor" class="btn btn-secondary">Open Editor Url(s)</button>
-
-                                                    <button type="button" id="openAem" class="btn btn-secondary">Open AEM Path Url(s)</button>
-
-                                                    <button type="button" id="openOptional" class="btn btn-secondary optional">Open Optional Url(s)</button>
-
-                                                </div>
-
-                </div>
-
- 
-
-                <div id="error" class="alert alert-info m-2" style="display:none;"></div>
-
- 
-
-                                <h2 class="h4">Live</h2>
-
-                                <textarea class="urlContainers " style="overflow:hidden;" id="Live"></textarea>
-
-                               
-
-                                <h2 class="h4">Preview</h2>
-
-                                <textarea class="urlContainers " style="overflow:hidden;" id="Preview"></textarea>
-
-                               
-
-                                <h2 class="h4">Editor</h2>
-
-                                <textarea class="urlContainers " style="overflow:hidden;" id="Editor"></textarea>
-
-                               
-
-                                <h2 class="h4">AEM Path</h2>
-
-                                <textarea class="urlContainers " style="overflow:hidden;" id="Aem"></textarea>
-
- 
-
-                                <h2 class="h4" class="optional" id="h2OptionHeading">Optional Url(s)</h2>
-
-                                <textarea class="urlContainers optional" style="overflow:hidden;" id="Optional"></textarea>
-
-               
-
-                <button type="button" style="display:none;" id="back" class="btn btn-primary mt-2">Back To Main Page</button>
-
- 
-
-                </div>
-
+	</div>
 </div>
+	<script>
+	$(function () {
+	$('[data-toggle="popover"]').popover()
+	$('[data-toggle="tooltip"]').tooltip()
+	})
+	$('.popover-dismiss').popover({trigger: 'focus'})
 
-                <script>
+	</script>
 
-                $(function () {
 
-                    $('[data-toggle="popover"]').popover()
 
-                })
-
-                                $('.popover-dismiss').popover({
-
-                                                trigger: 'focus'
-
-                })
-
-                </script>
-
-                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-
-                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-                <script type="text/javascript" src="./merge.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./merge.js"></script>
 </body>
-
- 
 
 </html>
